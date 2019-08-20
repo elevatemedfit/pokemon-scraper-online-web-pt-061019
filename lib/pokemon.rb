@@ -20,15 +20,16 @@ class Pokemon
     self.new(id, name, type)
   end
 
-def self.find(id, db)
+def self.find(id)
   sql = <<-SQL
   SELECT * FROM pokemon WHERE id = ?
   LIMIT 1
   SQL
-binding.pry
+
   DB[:conn].execute(sql,db).map do |row|
     self.new_from_db(row)
   end.first
+  binding.pry 
 end
 
 end
