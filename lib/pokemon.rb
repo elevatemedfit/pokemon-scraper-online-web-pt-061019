@@ -13,5 +13,14 @@ class Pokemon
       db.execute( "INSERT INTO pokemon ( name, type ) VALUES ( ?, ? )", [name, type])#Instead, you should use bound parameters for any variable data that you are passing into your SQL statement:
   end
 
-   
+def self.find_by_id(id,db)
+  sql = <<-SQL
+  SELECT * FROM pokemon WHERE id = ?
+  LIMIT 1
+
+  SQL
+  end
+
+end
+
 end
