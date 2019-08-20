@@ -33,5 +33,3 @@ def self.find_by_id(id,db)
 end
 
 end
-
-end
