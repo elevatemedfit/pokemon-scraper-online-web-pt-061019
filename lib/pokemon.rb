@@ -29,7 +29,6 @@ def self.find(id)
   DB[:conn].execute(sql,db).map do |row|
     self.new_from_db(row)
   end.first
-  binding.pry 
 end
 
 end
