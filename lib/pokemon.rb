@@ -22,11 +22,7 @@ class Pokemon
 
 def self.find(id)
   result = db.execute("SELECT * FROM pokemon WHERE id = ?;", id).flatten
-
-
-  DB[:conn].execute(sql,result).map do |row|
-    self.new_from_db(row)
-  end
+Pokemon.new(id: result[0], name: result[1], type: result[2], db: db)
 end
 
 end
