@@ -23,12 +23,13 @@ class Pokemon
 def self.find(id)
   sql = <<-SQL
   SELECT * FROM pokemon WHERE id = ?
+  LIMIT 1
 
   SQL
 
-  DB[:conn].execute(sql, id).map do |row|
+  DB[:conn].execute(sql,id).map do |row|
     self.new_from_db(row)
-  end
+  end.first
 end
 
 end
