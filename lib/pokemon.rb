@@ -23,8 +23,7 @@ class Pokemon
 def self.find_by_id(id,db)
   sql = <<-SQL
   SELECT * FROM pokemon WHERE id = ?
-  LIMIT 1
-
+  
   SQL
 
   DB[:conn].execute(sql, id).map do |row|
