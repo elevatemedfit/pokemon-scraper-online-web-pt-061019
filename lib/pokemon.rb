@@ -20,7 +20,7 @@ class Pokemon
     self.new(id, name, type)
   end
 
-def self.find(id)
+def self.find(id, db)
   sql = <<-SQL
   SELECT * FROM pokemon WHERE id = ?
   LIMIT 1
