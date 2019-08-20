@@ -25,7 +25,7 @@ def self.find(id, db)
   SELECT * FROM pokemon WHERE id = ?
   LIMIT 1
   SQL
-
+binding.pry
   DB[:conn].execute(sql,db).map do |row|
     self.new_from_db(row)
   end.first
