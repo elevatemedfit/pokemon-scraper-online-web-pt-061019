@@ -24,7 +24,6 @@ def self.find(id)
   sql = <<-SQL
   SELECT * FROM pokemon WHERE id = ?
   LIMIT 1
-
   SQL
 
   DB[:conn].execute(sql,id).map do |row|
